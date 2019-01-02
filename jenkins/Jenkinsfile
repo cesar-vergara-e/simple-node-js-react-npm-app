@@ -19,7 +19,7 @@ pipeline {
                 docker { image 'andmyhacks/trufflehog' }
             }
             steps {
-                trufflehog -v
+                sh 'trufflehog -v'
                 sh './jenkins/scripts/test.sh'
             }
         }
