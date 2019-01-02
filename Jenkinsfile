@@ -15,11 +15,11 @@ pipeline {
             }
         }
         stage('Test') {
-            agent {
-                docker { image 'andmyhacks/trufflehog' }
-            }
+//            agent {
+//                docker { image 'andmyhacks/trufflehog' }
+//            }
             steps {
-                sh 'trufflehog -v'
+//                sh 'trufflehog -v'
                 sh './jenkins/scripts/test.sh'
             }
         }
