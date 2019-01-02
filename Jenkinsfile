@@ -7,6 +7,8 @@ pipeline {
     }
     environment {
         CI = 'true'
+        KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
     }
     stages {
         stage('Build') {
@@ -20,6 +22,7 @@ pipeline {
 //            }
             steps {
 //                sh 'trufflehog -v'
+                sh 'echo $ACCESS_KEY'
                 sh './jenkins/scripts/test.sh'
             }
         }
